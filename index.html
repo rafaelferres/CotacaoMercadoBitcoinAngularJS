@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="MercadoBitcoinAPI">
+	<head>
+	  <title>Angular MercadoBitcoin</title>
+	  <meta name="robots" content="index, follow">
+	  <meta charset="utf-8">
+	  <base href="/">
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="css/bootstrap.min.css">
+	</head>
+	<body ng-controller="MainController">
+		<!--  Ini Header -->
+		<nav class="navbar navbar-light bg-light">
+		  <span class="navbar-brand mb-0 h1">MercadoBitcoin API</span>
+		</nav>
+		<!-- Header End -->
+		<div class="container" style="margin-top: 45px;">
+			<div class="row">
+   				<div class="col-sm">
+					<div class="alert alert-primary" role="alert">
+					  Busca a Cotação do MercadoBitcoin via API a cada <strong>{{everySeconds}}s</strong>.
+					</div>
+					<table class="table table-hover" style="margin-top: 45px;">
+					  <thead>
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">High</th>
+					      <th scope="col">Low</th>
+					      <th scope="col">Vol</th>
+					      <th scope="col">Last</th>
+					      <th scope="col">Buy</th>
+					      <th scope="col">Sell</th>
+					      <th scope="col">Date</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr ng-repeat="ticker in tickers">
+					      <th scope="row">{{tickers.indexOf(ticker)}}</th>
+					      <td>{{ticker.ticker.high}}</td>
+					      <td>{{ticker.ticker.low}}</td>
+					      <td>{{ticker.ticker.vol}}</td>
+					      <td>{{ticker.ticker.last}}</td>
+					      <td>{{ticker.ticker.buy}}</td>
+					      <td>{{ticker.ticker.sell}}</td>
+					      <td>{{ticker.ticker.date * 1000 | date:'dd/MM/yyyy HH:mm'}}</td>
+					    </tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- Footer End -->
+		<!-- JS -->
+	 	<script src="js/angular.min.js"></script>
+		<script src="scripts/MercadoBitcoinAPI.js"></script>
+		<script src="scripts/Controllers/MainController.js"></script>
+	</body>
+</html>
